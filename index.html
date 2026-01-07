@@ -55,17 +55,17 @@
 <section id="left-side">
 
     <!-- Your logo -->
-    <img src="img/logo.png" alt="" class="brand-logo"/>
+    <img src="./img/logo.png" alt="" class="brand-logo"/>
 
     <div class="content">
-        <h1 class="text-intro opacity-0">www.mangotale.org<br></h1>
+        <h1 class="text-intro opacity-0">Mango Tale<br></h1>
         <p class="text-intro opacity-0">Welcome to the community!!!</p>
         <br>
         <nav>
             <ul>
                 <li>
-                    <a href="#" onclick="copyIp()" class="light-btn text-intro opacity-0">COPY IP</a>
-                    <input type="text" value="mangotale.org" id="myInput" hidden>
+                    <a href="#" id="copy-ip-btn" onclick="copyIp()" class="light-btn text-intro opacity-0">COPY IP</a>
+                    <input type="text" value="play.mangotale.org" id="myInput" hidden>
                 </li>
                 <li>
                     <a href="https://discord.gg/b3McmMTG93" class="action-btn trigger text-intro opacity-0">DISCORD</a>
@@ -87,29 +87,31 @@
 </footer>
 
 <!-- * Libraries jQuery, Easing and Bootstrap - Be careful to not remove them * -->
-<script src="js/jquery.min.js"></script>
-<script src="js/jquery.easings.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
+<script src="./js/jquery.min.js"></script>
+<script src="./js/bootstrap.min.js"></script>
 
 <!-- PhotoSwipe Core JS file -->
-<script src="js/velocity.min.js"></script>
+<script src="./js/velocity.min.js"></script>
 
 <!-- PhotoSwipe UI JS file -->
-<script src="js/velocity.ui.min.js"></script>
+<script src="./js/velocity.ui.min.js"></script>
 
 <!-- Slideshow/Image plugin -->
-<script src="js/vegas.js"></script>
+<script src="./js/vegas.js"></script>
 <!-- Main JS File -->
-<script src="js/main.js"></script>
-<script src="js/status.js"></script>
+<script src="./js/main.js"></script>
+<script src="./js/status.js"></script>
 
 <script>
     function copyIp() {
         let server_ip = document.getElementById("myInput");
-        server_ip.select();
-        server_ip.setSelectionRange(0, 99999);
         navigator.clipboard.writeText(server_ip.value);
-        alert("Đã copy IP: " + server_ip.value);
+
+        let btn = document.getElementById("copy-ip-btn");
+        btn.innerHTML = "COPIED!";
+        setTimeout(function(){
+            btn.innerHTML = "COPY IP";
+        }, 1500);
     }
 </script>
 </body>
